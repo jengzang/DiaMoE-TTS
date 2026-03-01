@@ -50,7 +50,7 @@ from f5_tts.infer.utils_infer import (
 # 模型配置参数 - 在这里直接指定
 MODEL_CONFIG = {
     "model_name": "gradio",
-    "ckpt_file": "/path/to/your/model.pt",  # 请修改为你的模型路径
+    "ckpt_file": "./models/10ep_mlpEXP_9.pt",  # 模型路径
     "vocab_file": "./diamoe_tts/data/vocab.txt",
     "use_moe": True,
     "num_exps": 9,

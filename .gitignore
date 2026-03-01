@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+diamoetts/
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+.claude/
+
+# Models (too large for git)
+models/*.pt
+models/*.pth
+
+# Generated audio files
+*.wav
+!prompts/*.wav
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
