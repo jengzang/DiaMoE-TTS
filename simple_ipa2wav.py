@@ -163,13 +163,28 @@ def main():
 
     # Monkey patch torchaudio.load to use soundfile
     import torchaudio
+    import torchaudio.transforms as T
+
     def soundfile_load(filepath, **kwargs):
         audio, sr = sf.read(filepath)
-        if audio.ndim == 1:
-            audio = audio.reshape(1, -1)
-        else:
-            audio = audio.T
-        return torch.from_numpy(audio).float(), sr
+
+        # 转换为单声道（如果是立体声）
+        if audio.ndim == 2:
+            audio = audio.mean(axis=1)  # 平均左右声道
+
+        # 转换为 (1, samples) 格式
+        audio = audio.reshape(1, -1)
+
+        # 转换为 torch tensor
+        audio_tensor = torch.from_numpy(audio).float()
+
+        # 重采样到 24000 Hz（如果需要）
+        if sr != 24000:
+            resampler = T.Resample(orig_freq=sr, new_freq=24000)
+            audio_tensor = resampler(audio_tensor)
+            sr = 24000
+
+        return audio_tensor, sr
 
     torchaudio.load = soundfile_load
 
@@ -223,6 +238,17 @@ def main():
             fix_duration=None,
             device="cpu"
         )
+
+        # 检查并增强音量（如果太安静）
+        import numpy as np
+        max_amp = np.max(np.abs(wav))
+        print(f"\n生成音频的最大振幅: {max_amp:.4f}")
+
+        # 如果音频太安静，进行归一化
+        if max_amp < 0.1:
+            target_amp = 0.3  # 目标振幅
+            wav = wav * (target_amp / max_amp)
+            print(f"音频已增强到振幅: {target_amp}")
 
         import soundfile as sf
         sf.write(output_file, wav, sr)
