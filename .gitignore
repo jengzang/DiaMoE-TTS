@@ -9,9 +9,9 @@ dist/
 build/
 
 # Virtual environments
+venv/
 diamoetts/
 .venv/
-venv/
 ENV/
 
 # IDE

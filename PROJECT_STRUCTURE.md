@@ -57,7 +57,7 @@ DiaMoE-TTS/
 │   ├── ipa_global.PNG
 │   └── diamoe_tts.png
 │
-├── 📂 diamoetts/                   # 虚拟环境（被 .gitignore 忽略）
+├── 📂 venv/                        # Python 虚拟环境（被 .gitignore 忽略）
 ├── 📂 .venv/                       # 备用虚拟环境（被忽略）
 ├── 📂 .idea/                       # IDE 配置（被忽略）
 └── 📂 .claude/                     # Claude 配置（被忽略）
@@ -163,12 +163,12 @@ rm outputs/*.wav
 
 ### 虚拟环境
 
-项目使用 `diamoetts/` 作为虚拟环境目录：
+项目使用 `venv/` 作为虚拟环境目录：
 
 ```bash
 # 激活虚拟环境
-.\diamoetts\Scripts\activate  # Windows
-source diamoetts/bin/activate  # Linux/Mac
+.\venv\Scripts\activate  # Windows
+source venv/bin/activate  # Linux/Mac
 
 # 安装依赖
 cd diamoe_tts
@@ -196,7 +196,7 @@ pip install -e .
 | 目录 | 大小 | 说明 |
 |------|------|------|
 | `models/` | ~1.3GB | 模型文件 |
-| `diamoetts/` | ~2GB | 虚拟环境 |
+| `venv/` | ~2GB | 虚拟环境 |
 | `prompts/` | ~22MB | 参考音频 |
 | `outputs/` | 变化 | 生成的音频 |
 | 其他 | ~100MB | 代码和文档 |
@@ -224,14 +224,15 @@ rm *.tmp *.log
 
 ```bash
 # 删除虚拟环境
-rm -rf diamoetts/
+rm -rf venv/
 
 # 删除生成的文件
 rm -rf outputs/*.wav
 
 # 重新安装
-python -m venv diamoetts
-.\diamoetts\Scripts\activate
+python -m venv venv
+.\venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/Mac
 cd diamoe_tts
 pip install -e .
 ```

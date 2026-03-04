@@ -29,9 +29,9 @@
 
 ```bash
 # 创建虚拟环境
-python -m venv diamoetts
-.\diamoetts\Scripts\activate  # Windows
-# source diamoetts/bin/activate  # Linux/Mac
+python -m venv venv
+.\venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/Mac
 
 # 安装
 cd diamoe_tts
