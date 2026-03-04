@@ -27,7 +27,6 @@ models/*.pth
 outputs/*.wav
 *.wav
 !prompts/*.wav
-!examples/*.wav
 
 # OS
 .DS_Store

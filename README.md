@@ -209,9 +209,9 @@ python simple_ipa2wav.py
 
 ## 📚 文档
 
-- **[项目架构说明](PROJECT_STRUCTURE.md)** - 完整的目录结构和文件说明
-- **[详细改进说明](README_CHANGES.md)** - 所有改进的详细文档
-- **[原项目 README](README_ORIGINAL.md)** - 原始项目的完整文档
+- **[项目架构说明](docs/PROJECT_STRUCTURE.md)** - 完整的目录结构和文件说明
+- **[详细改进说明](docs/README_CHANGES.md)** - 所有改进的详细文档
+- **[原项目 README](docs/README_ORIGINAL.md)** - 原始项目的完整文档
 - **[原项目仓库](https://github.com/GiantAILab/DiaMoE-TTS)** - GiantAILab 的原始项目
 - **[论文](https://arxiv.org/abs/2509.22727)** - DiaMoE-TTS 技术论文
 
