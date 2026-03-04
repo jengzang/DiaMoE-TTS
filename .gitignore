@@ -24,8 +24,10 @@ models/*.pt
 models/*.pth
 
 # Generated audio files
+outputs/*.wav
 *.wav
 !prompts/*.wav
+!examples/*.wav
 
 # OS
 .DS_Store
